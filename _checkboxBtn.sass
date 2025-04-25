@@ -1,0 +1,36 @@
+@import "../../colors"
+
+@mixin checkbox-btn($color: $primary-color)
+  label
+    &:hover
+      cursor: pointer
+    text-align: center
+    border-radius: 4px
+    transition: all 0.3s
+    user-select: none
+    border: 1px solid $color
+    color: $color
+    padding: 1em
+  .form-check
+    padding-left: 0
+    padding-right: 0.5em
+    margin: 0 0 1em
+  input[type="checkbox"]
+    visibility: hidden
+    &:checked + label
+      background: $color !important
+      color: $white !important
+
+@mixin checkbox-btn-smaller
+  @include checkbox-btn
+  label
+    padding: 0.5em
+
+@mixin checkbox-btn-smaller-of-color($color)
+  @include checkbox-btn-smaller
+  label
+    color: $color !important
+    border-color: $color !important
+  input[type="checkbox"]
+    &:checked + label
+      background: $color !important
